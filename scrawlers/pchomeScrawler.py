@@ -17,6 +17,7 @@ with open('input_pchome_item_list.csv', 'rb') as f:
     item_list = list(reader)
 
 output = list()
+output.append(["rt_itemNo", "pchome_itemNo", "name", "price","found records", "url"])
 
 for items in item_list:
 
@@ -33,14 +34,14 @@ for items in item_list:
   
   item_count = len(item_info["prods"])
   item_name = item_info["prods"][0]["name"]
-  item_price = item_info["prods"][0]["price"]
+  item_price = "$" + str(item_info["prods"][0]["price"])
   item_id = item_info["prods"][0]["Id"]
 
   print "item_no: " , item
   if (item_count >1 ): 
     print url
     print "size: ", item_count
-    print item_name, ",", item_id, ",", "$", item_price
+    print item_name, ",", item_id, ",", item_price
     print " "
   else:
     print item_info["prods"][0]["name"],",",item_info["prods"][0]["Id"],",","$",item_info["prods"][0]["price"]
