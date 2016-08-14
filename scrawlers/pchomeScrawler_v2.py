@@ -18,8 +18,16 @@ with open('input_pchome_item_list.csv', 'rb') as f:
 
 output = list()
 output.append(["rt_itemNo", "pchome_itemNo", "name", "price","found records", "url"])
+line_count = 1 
 
 for items in item_list:
+  
+  # skip the title line
+  if (line_count == 1):
+    line_count = line_count + 1
+    continue
+  line_count = line_count + 1
+
 
   item_result = list()
   
@@ -28,11 +36,11 @@ for items in item_list:
   rt_item_no = items[0]
 
   # prepare the request to pchome
-  url = "http://ecshweb.pchome.com.tw/search/v3.3/all/results?q=" + item + "&page=1&sort=prc/ac" 
+  url = "http://ecshweb.pchome.com.tw/search/v3.3/all/results?q=" + item + "&page=1,2&sort=prc/ac" 
   readable_url = "http://ecshweb.pchome.com.tw/search/v3.3/?q=" + item + "&scope=all&sortParm=prc&sortOrder=ac"
   res = requests.get(url)
   item_info = json.loads(res.text)
-  
+  print url
   item_count = len(item_info["prods"])
   
   pointer = 0
@@ -63,7 +71,7 @@ for items in item_list:
       item_price = "$" + str(item_info["prods"][item_pointer]["price"])
       item_id = item_info["prods"][item_pointer]["Id"]
     else:
-      item_name = ""
+      item_name = item_info["prods"][0]["name"] 
       item_price = "no stock"
       item_id = ""
     
