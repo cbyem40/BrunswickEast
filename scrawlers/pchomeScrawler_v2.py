@@ -40,12 +40,13 @@ for items in item_list:
   readable_url = "http://ecshweb.pchome.com.tw/search/v3.3/?q=" + item + "&scope=all&sortParm=prc&sortOrder=ac"
   res = requests.get(url)
   item_info = json.loads(res.text)
-  print url
-  item_count = len(item_info["prods"])
   
+  item_count = item_info["totalRows"]
   pointer = 0
   item_pointer = 0 
   available_for_sale = True
+  item_name = ""
+  item_price = ""
 
   if (item_count == 0):
     item_price = "no matches"
@@ -86,6 +87,7 @@ for items in item_list:
     print " "
   else:
     print "not available"
+    print " "
   
   item_result = [rt_item_no,item,item_name,item_price,item_count,readable_url]
   output.append(item_result)
