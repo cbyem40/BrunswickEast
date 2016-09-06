@@ -1,5 +1,5 @@
 # Price crawler for PCHOME
-## find the lowest price in PCHOME
+find the lowest price in PCHOME
 
 
 # How to use this tool
