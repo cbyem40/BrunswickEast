@@ -3,8 +3,8 @@ import requests
 import json
 import csv
 
-# setup folder 
-folder = "D:\Workspace\BrunswickEast\scrawlers"
+# setup folder
+folder = "D:\Workspace\BrunswickEast\crawlers"
 
 print("Start!")
 print()

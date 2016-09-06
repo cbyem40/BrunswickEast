@@ -1,7 +1,6 @@
-# Price Scrawler for PCHOME
-### find the lowest price in PCHOME
+# Price crawler for PCHOME
+## find the lowest price in PCHOME
 
-***
 
 # How to use this tool
 ## Steps:
@@ -18,7 +17,7 @@
 
 
 ### 2. Open the `Python 3 IDLE`
-- open the python script: `pchomeScrawler_v2.py`
+- open the python script: `pchomeCrawler_v2.py`
 
 ### 3. Change the `input file` and `output file` directory
 - find "`setup folder`" in the script, and change the location to yours.
